@@ -1,12 +1,12 @@
 GSOAP_ROOT = ./
-CCO = arm-hisiv300-linux-gcc
+CCO = gcc
 CC = $(CCO) -g -DWITH_NONAMESPACES  -DSOAP_DEBUG -DDEBUG
 INCLUDE = -I$(GSOAP_ROOT)
 CPP_OBJS = soapC.cpp stdsoap2.cpp
 SERVER_OBJS = soapC.o stdsoap2.o duration.o wsaapi.o onvif_server_interface.o soapClient.o soapServer.o onvif_server.o
 
 
-all: arm 
+all: server 
 server:
 	$(CC) $(INCLUDE) soapC.c -o soapC.o
 	$(CC) $(INCLUDE) stdsoap2.c -o stdsoap2.o
